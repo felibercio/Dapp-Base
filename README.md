@@ -1,4 +1,4 @@
-# Super Dapp Base
+# Galaxy Base (Dapp)
 
 ## Visão Geral
 Super Dapp para celular focado em pagamentos e serviços financeiros na rede Base, promovendo a autonomia do usuário sobre seus ativos.
@@ -88,6 +88,6 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## Contato
 
-Felipe Bercio - [@felibercio](https://github.com/felibercio)
+FeliBercio - [@felibercio](https://github.com/felibercio)
 
 Link do Projeto: [https://github.com/felibercio/Dapp-Base](https://github.com/felibercio/Dapp-Base)
