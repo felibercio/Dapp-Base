@@ -22,7 +22,7 @@ Super Dapp para celular focado em pagamentos e serviços financeiros na rede Bas
 - Autocustódia de ativos
 - Programa de cartão de crédito
 
-### �� Tokenização
+### 🪙 Tokenização
 - Tokenização de boas ações (Brasil e mundo)
 - Staking com múltiplas opções de stablecoins
 - Pools de liquidez (modelo Meteora)
