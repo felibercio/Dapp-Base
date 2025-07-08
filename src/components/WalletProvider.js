@@ -11,7 +11,7 @@ import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import '@rainbow-me/rainbowkit/styles.css';
 
 // Configuração das chains
-const { chains, publicClient, webSocketPublicClient } = configureChains(
+const { chains, publicClient } = configureChains(
   [base, baseGoerli],
   [
     jsonRpcProvider({
@@ -32,7 +32,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
 // Configuração das wallets
 const { wallets } = getDefaultWallets({
   appName: 'Super Dapp Base',
-  projectId: 'your-project-id', // Substitua pelo seu project ID do WalletConnect
+  projectId: process.env.REACT_APP_WALLET_CONNECT_PROJECT_ID || 'your-project-id',
   chains,
 });
 
@@ -45,7 +45,6 @@ const wagmiConfig = createConfig({
   autoConnect: true,
   connectors,
   publicClient,
-  webSocketPublicClient,
 });
 
 const WalletProvider = ({ children }) => {

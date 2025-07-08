@@ -46,8 +46,8 @@ export class BaseChainService {
         throw new Error('MetaMask não está instalado');
       }
 
-      // Configurar provider
-      this.provider = new ethers.providers.Web3Provider(window.ethereum);
+      // Configurar provider (ethers v6)
+      this.provider = new ethers.BrowserProvider(window.ethereum);
       
       // Configurar cliente público (viem)
       this.publicClient = createPublicClient({
@@ -57,7 +57,7 @@ export class BaseChainService {
 
       // Verificar se está conectado à rede Base
       const network = await this.provider.getNetwork();
-      if (network.chainId !== BASE_CHAIN_CONFIG.chainId) {
+      if (Number(network.chainId) !== BASE_CHAIN_CONFIG.chainId) {
         await this.switchToBaseNetwork();
       }
 
@@ -87,8 +87,8 @@ export class BaseChainService {
         throw new Error('Nenhuma conta disponível');
       }
 
-      // Configurar signer
-      this.signer = this.provider.getSigner();
+      // Configurar signer (ethers v6)
+      this.signer = await this.provider.getSigner();
       
       // Configurar cliente da wallet (viem)
       this.walletClient = createWalletClient({
@@ -174,7 +174,7 @@ export class BaseChainService {
       
       return {
         raw: balance.toString(),
-        formatted: ethers.utils.formatUnits(balance, decimals),
+        formatted: ethers.formatUnits(balance, decimals),
         decimals
       };
     } catch (error) {
@@ -196,7 +196,7 @@ export class BaseChainService {
       const decimals = await this.brlaContract.decimals();
       
       // Converter amount para a unidade correta
-      const amountInWei = ethers.utils.parseUnits(amount.toString(), decimals);
+      const amountInWei = ethers.parseUnits(amount.toString(), decimals);
 
       // Executar transferência
       const tx = await this.brlaContract.transfer(toAddress, amountInWei);
@@ -206,10 +206,10 @@ export class BaseChainService {
       // Aguardar confirmação
       const receipt = await tx.wait();
       
-      console.log('Transação confirmada:', receipt.transactionHash);
+      console.log('Transação confirmada:', receipt.hash);
       
       return {
-        hash: receipt.transactionHash,
+        hash: receipt.hash,
         blockNumber: receipt.blockNumber,
         gasUsed: receipt.gasUsed.toString(),
         status: receipt.status === 1 ? 'success' : 'failed'
