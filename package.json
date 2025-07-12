@@ -1,7 +1,7 @@
 {
   "name": "super-dapp-base",
   "version": "1.0.0",
-  "description": "Super Dapp para pagamentos e serviços financeiros na Base",
+  "description": "Super Dapp para pagamentos PIX com stablecoins na Base",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
@@ -10,15 +10,24 @@
     "eject": "react-scripts eject",
     "dev": "next dev",
     "build:next": "next build",
-    "start:next": "next start"
+    "start:next": "next start",
+    "compile": "hardhat compile",
+    "deploy:testnet": "hardhat run scripts/deploy.js --network baseGoerli",
+    "deploy:mainnet": "hardhat run scripts/deploy.js --network base",
+    "test:contracts": "hardhat test",
+    "verify:testnet": "hardhat run scripts/verify.js --network baseGoerli",
+    "verify:mainnet": "hardhat run scripts/verify.js --network base",
+    "coverage": "hardhat coverage"
   },
   "keywords": [
     "dapp",
     "blockchain",
     "base",
     "stablecoin",
-    "defi",
-    "payments"
+    "pix",
+    "brla",
+    "usdc",
+    "defi"
   ],
   "author": "Felipe Bercio",
   "license": "MIT",
@@ -43,10 +52,29 @@
     "web3": "^4.2.0"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.9",
+    "@nomicfoundation/hardhat-ethers": "^3.0.9",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.13",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.14",
+    "@openzeppelin/contracts": "^5.0.0",
+    "@openzeppelin/contracts-upgradeable": "^5.0.0",
+    "@openzeppelin/hardhat-upgrades": "^3.0.0",
+    "@typechain/ethers-v6": "^0.5.1",
+    "@typechain/hardhat": "^9.1.0",
+    "@types/chai": "^4.3.20",
+    "@types/mocha": "^10.0.10",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "chai": "^4.5.0",
+    "dotenv": "^16.0.0",
     "eslint": "^8.0.0",
+    "hardhat": "^2.19.0",
+    "hardhat-gas-reporter": "^1.0.9",
     "prettier": "^3.0.0",
+    "solidity-coverage": "^0.8.5",
+    "ts-node": "^10.9.2",
+    "typechain": "^8.3.2",
     "typescript": "^5.2.0"
   },
   "browserslist": {

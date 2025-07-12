@@ -368,7 +368,7 @@ export class BaseChainService {
         console.log('Evento Transfer detectado:', {
           from,
           to,
-          value: ethers.utils.formatEther(value),
+          value: ethers.formatEther(value), // Corrigido: removido .utils
           transactionHash: event.transactionHash
         });
 
@@ -423,7 +423,7 @@ export class BaseChainService {
         chainId: network.chainId,
         name: network.name,
         blockNumber,
-        gasPrice: ethers.utils.formatUnits(gasPrice, 'gwei')
+        gasPrice: ethers.formatUnits(gasPrice, 'gwei') // Corrigido: removido .utils
       };
     } catch (error) {
       console.error('Erro ao obter informações da rede:', error);
