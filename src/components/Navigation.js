@@ -18,9 +18,9 @@ import {
   Payment,
   TrendingUp,
   Menu as MenuIcon,
-  AccountBalanceWallet,
 } from '@mui/icons-material';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import CapyLogo from './CapyLogo';
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -50,13 +50,22 @@ const Navigation = () => {
   ];
 
   return (
-    <AppBar position="static" sx={{ mb: 2 }}>
+    <AppBar 
+      position="static" 
+      sx={{ 
+        mb: 2,
+        background: 'linear-gradient(135deg, #5FBEAA 0%, #4A9688 100%)',
+        boxShadow: '0 4px 20px rgba(95, 190, 170, 0.3)',
+      }}
+    >
       <Toolbar>
         <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-          <AccountBalanceWallet sx={{ mr: 1 }} />
-          <Typography variant="h6" component="div">
-            Super Dapp Base
-          </Typography>
+          <CapyLogo 
+            size={40} 
+            showText={true} 
+            variant="white"
+            animated={true}
+          />
         </Box>
 
         {isMobile ? (
@@ -66,6 +75,12 @@ const Navigation = () => {
               color="inherit"
               aria-label="menu"
               onClick={handleMenuOpen}
+              sx={{ 
+                bgcolor: 'rgba(255, 255, 255, 0.1)',
+                '&:hover': {
+                  bgcolor: 'rgba(255, 255, 255, 0.2)',
+                }
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -73,12 +88,26 @@ const Navigation = () => {
               anchorEl={anchorEl}
               open={Boolean(anchorEl)}
               onClose={handleMenuClose}
+              sx={{
+                '& .MuiPaper-root': {
+                  bgcolor: 'white',
+                  borderRadius: 2,
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+                }
+              }}
             >
               {menuItems.map((item) => (
                 <MenuItem
                   key={item.path}
                   onClick={() => handleNavigate(item.path)}
                   selected={location.pathname === item.path}
+                  sx={{
+                    color: '#1E3A8A',
+                    '&.Mui-selected': {
+                      bgcolor: 'rgba(95, 190, 170, 0.1)',
+                      color: '#5FBEAA',
+                    }
+                  }}
                 >
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                     {item.icon}
@@ -99,7 +128,14 @@ const Navigation = () => {
                 variant={location.pathname === item.path ? 'outlined' : 'text'}
                 sx={{
                   color: 'white',
-                  borderColor: location.pathname === item.path ? 'white' : 'transparent',
+                  borderColor: location.pathname === item.path ? 'rgba(255, 255, 255, 0.7)' : 'transparent',
+                  backgroundColor: location.pathname === item.path ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+                  borderRadius: 2,
+                  fontWeight: 500,
+                  '&:hover': {
+                    bgcolor: 'rgba(255, 255, 255, 0.1)',
+                    borderColor: 'rgba(255, 255, 255, 0.5)',
+                  }
                 }}
               >
                 {item.label}

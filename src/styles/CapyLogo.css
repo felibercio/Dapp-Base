@@ -1,0 +1,154 @@
+/* Estilos específicos para o logo da capivara */
+.capy-logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.capy-logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.capy-logo-icon:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 20px rgba(95, 190, 170, 0.3));
+}
+
+.capy-logo-svg {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.capy-logo-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: #2C3E50;
+  margin-left: 8px;
+  transition: all 0.3s ease;
+}
+
+.capy-logo-text.white-variant {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Animação de flutuação */
+@keyframes capy-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.capy-logo-animated {
+  animation: capy-float 3s ease-in-out infinite;
+}
+
+/* Estados responsivos */
+@media (max-width: 768px) {
+  .capy-logo-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .capy-logo-text {
+    margin-left: 0;
+    margin-top: 4px;
+    font-size: 14px;
+  }
+}
+
+/* Efeitos de hover aprimorados */
+.capy-logo-container:hover .capy-logo-svg {
+  transform: scale(1.02);
+}
+
+.capy-logo-container:hover .capy-logo-text {
+  color: #5FBEAA;
+}
+
+.capy-logo-container:hover .capy-logo-text.white-variant {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Acessibilidade */
+.capy-logo-container:focus-visible {
+  outline: 2px solid #5FBEAA;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Suporte para modo escuro */
+@media (prefers-color-scheme: dark) {
+  .capy-logo-text {
+    color: #E5E7EB;
+  }
+  
+  .capy-logo-container:hover .capy-logo-text {
+    color: #5FBEAA;
+  }
+}
+
+/* Variações de tamanho */
+.capy-logo-small {
+  transform: scale(0.8);
+}
+
+.capy-logo-large {
+  transform: scale(1.2);
+}
+
+/* Estado de carregamento */
+.capy-logo-loading {
+  opacity: 0.6;
+  animation: capy-pulse 2s ease-in-out infinite;
+}
+
+@keyframes capy-pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Efeito de brilho sutil */
+.capy-logo-icon::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+.capy-logo-container:hover .capy-logo-icon::after {
+  opacity: 1;
+  transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* Melhorias de performance */
+.capy-logo-container * {
+  will-change: transform;
+}
+
+.capy-logo-container {
+  contain: layout style paint;
+} 

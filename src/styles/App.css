@@ -11,7 +11,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FFFFFF;
+  background: linear-gradient(180deg, #F0F9F7 0%, #FFFFFF 100%);
+  min-height: 100vh;
 }
 
 code {
@@ -19,21 +20,224 @@ code {
     monospace;
 }
 
+/* Estilos específicos do Capy Pay */
+.capy-gradient-bg {
+  background: linear-gradient(180deg, #F0F9F7 0%, #FFFFFF 100%);
+}
+
+.capy-primary-gradient {
+  background: linear-gradient(135deg, #5FBEAA 0%, #4A9688 100%);
+}
+
+.capy-secondary-gradient {
+  background: linear-gradient(135deg, #B8860B 0%, #8B6914 100%);
+}
+
+.capy-text-primary {
+  color: #1E3A8A;
+}
+
+.capy-text-secondary {
+  color: #64748B;
+}
+
+.capy-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(95, 190, 170, 0.1);
+  transition: all 0.3s ease;
+}
+
+.capy-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.capy-button-primary {
+  background: linear-gradient(135deg, #B8860B 0%, #8B6914 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(184, 134, 11, 0.3);
+}
+
+.capy-button-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
+}
+
+.capy-button-secondary {
+  background: transparent;
+  color: #B8860B;
+  border: 2px solid #B8860B;
+  border-radius: 16px;
+  padding: 10px 24px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.capy-button-secondary:hover {
+  background: rgba(184, 134, 11, 0.1);
+  transform: translateY(-1px);
+}
+
+.capy-balance-card {
+  background: linear-gradient(135deg, #5FBEAA 0%, #4A9688 100%);
+  border-radius: 0 0 32px 32px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.capy-balance-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.capy-icon-button {
+  background: rgba(95, 190, 170, 0.1);
+  color: #5FBEAA;
+  border-radius: 12px;
+  padding: 12px;
+  transition: all 0.2s ease;
+}
+
+.capy-icon-button:hover {
+  background: rgba(95, 190, 170, 0.2);
+  transform: scale(1.05);
+}
+
+.capy-transaction-item {
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.capy-transaction-item:hover {
+  background: rgba(95, 190, 170, 0.05);
+}
+
+.capy-avatar {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.capy-floating-animation {
+  animation: capy-float 3s ease-in-out infinite;
+}
+
+@keyframes capy-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.capy-pulse-animation {
+  animation: capy-pulse 2s ease-in-out infinite;
+}
+
+@keyframes capy-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.capy-fade-in {
+  animation: capy-fade-in 0.6s ease-out forwards;
+}
+
+@keyframes capy-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.capy-slide-in {
+  animation: capy-slide-in 0.5s ease-out forwards;
+}
+
+@keyframes capy-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Estilo do glassmorphism aprimorado */
+.capy-glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+}
+
+/* Estilos responsivos específicos do Capy Pay */
+@media (max-width: 768px) {
+  .capy-balance-card {
+    border-radius: 0 0 24px 24px;
+  }
+  
+  .capy-card {
+    border-radius: 16px;
+    margin: 0 16px;
+  }
+  
+  .capy-button-primary,
+  .capy-button-secondary {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
 /* Estilos para gradientes */
 .gradient-bg {
-  background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+  background: linear-gradient(180deg, #F0F9F7 0%, #FFFFFF 100%);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #1B365D 0%, #4F46E5 100%);
+  background: linear-gradient(135deg, #1E3A8A 0%, #5FBEAA 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-button {
-  background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
-  box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.4);
+  background: linear-gradient(135deg, #5FBEAA 0%, #4A9688 100%);
+  box-shadow: 0 4px 14px 0 rgba(95, 190, 170, 0.4);
 }
 
 /* Animações */
@@ -439,4 +643,30 @@ hr {
     background: white !important;
     color: black !important;
   }
+}
+
+/* Animação para a logo da capivara */
+@keyframes capy-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Estilos para a logo da capivara */
+.capy-logo-animated {
+  animation: capy-float 3s ease-in-out infinite;
+}
+
+/* Efeitos de hover para a logo */
+.capy-logo-container:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 20px rgba(95, 190, 170, 0.3));
+}
+
+/* Transições suaves */
+.capy-logo-container {
+  transition: all 0.3s ease;
 }

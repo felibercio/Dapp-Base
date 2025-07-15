@@ -1,131 +1,132 @@
-# Super Dapp Base
+# Capy Pay - Aplicativo Financeiro Minimalista
 
-Uma aplicação descentralizada (DApp) para pagamentos PIX e conversões para BRLA na rede Base.
+## 🦫 Sobre o Capy Pay
 
-## 🚀 Funcionalidades
+O Capy Pay é um aplicativo financeiro moderno e minimalista, desenvolvido com uma estética limpa e amigável inspirada na tranquilidade da capivara. O design combina funcionalidade fintech com uma experiência visual calma e acolhedora.
 
-- **Pagamentos PIX**: Realize pagamentos PIX de forma rápida e segura
-- **Conversão PIX ↔ BRLA**: Converta entre PIX brasileiro e BRLA (stablecoin na Base)
-- **Staking**: Faça staking de tokens BRLA e ganhe recompensas
-- **Dashboard**: Gerencie suas transações e visualize histórico
-- **Integração Web3**: Conecte sua wallet MetaMask para interagir com a blockchain
+## 🎨 Design e Identidade Visual
+
+### Paleta de Cores
+- **Verde-turquesa suave (#5FBEAA)**: Cor principal, transmite calma e confiança
+- **Marrom quente (#B8860B)**: Detalhes e botões principais, adiciona elegância
+- **Azul-marinho escuro (#1E3A8A)**: Tipografia principal, garante legibilidade
+- **Fundo verde-turquesa suave (#F0F9F7)**: Fundo principal da aplicação
+
+### Características do Design
+- **Minimalista**: Interface limpa sem elementos desnecessários
+- **Moderno**: Componentes arredondados e sombras suaves
+- **Amigável**: Logo da capivara relaxada e cores acolhedoras
+- **Fluído**: Transições suaves e animações discretas
+
+## 🚀 Funcionalidades da Tela Principal
+
+### Header Arredondado
+- Logo da capivara com design amigável
+- Saudação personalizada ao usuário
+- Notificações em tempo real
+
+### Saldo Digital
+- Exibição em destaque do saldo da carteira
+- Opção de ocultar/mostrar saldo
+- Formatação brasileira de moeda
+
+### Botões de Ação
+- **Botão Principal**: "Enviar BRZ" em marrom com texto branco
+- **Botão Secundário**: "Receber BRZ" em estilo outlined
+- Design com bordas arredondadas e efeitos hover
+
+### Ações Rápidas
+- **Extrato**: Visualizar transações
+- **Configurações**: Personalizar aplicativo
+- **Ajuda**: Suporte ao usuário
+- **Pagar**: Scanner QR code
+
+### Transações Recentes
+- Lista das últimas transações
+- Ícones diferenciados para envio/recebimento
+- Formatação de valores e horários
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Frontend**: React 18, Material-UI
-- **Blockchain**: Base (Layer 2), Ethereum
-- **Web3**: Wagmi, Viem, Ethers.js
-- **Wallet**: RainbowKit, MetaMask
-- **Styling**: Material-UI Theme, CSS
+- **React**: Framework principal
+- **Material-UI**: Componentes de interface
+- **React Router**: Navegação entre páginas
+- **Custom CSS**: Estilos personalizados do Capy Pay
 
-## 📦 Instalação
+## 🎯 Inspiração Design
 
-### Pré-requisitos
+O design foi inspirado em aplicativos fintech modernos como:
+- **Nubank**: Simplicidade e cores vibrantes
+- **PicPay**: Interface intuitiva e amigável
+- **Toque único**: Personalidade da capivara relaxada
 
-- Node.js (versão 16 ou superior)
-- npm ou yarn
-- MetaMask instalado no navegador
+## 📱 Responsividade
 
-### Passos para instalação
+O aplicativo é totalmente responsivo com:
+- Adaptação para dispositivos móveis
+- Navegação otimizada para touch
+- Componentes que se ajustam ao tamanho da tela
 
-1. **Clone o repositório**
-   ```bash
-   git clone https://github.com/seu-usuario/super-dapp-base.git
-   cd super-dapp-base
-   ```
+## 🚀 Como Executar
 
-2. **Instale as dependências**
-   ```bash
-   npm install --legacy-peer-deps
-   ```
+```bash
+# Instalar dependências
+npm install
 
-3. **Configure as variáveis de ambiente**
-   ```bash
-   cp .env.example .env
-   ```
-   
-   Edite o arquivo `.env` com suas configurações:
-   ```
-   REACT_APP_WALLET_CONNECT_PROJECT_ID=seu-project-id
-   REACT_APP_PIX_API_TOKEN=seu-token-pix
-   REACT_APP_BRLA_CONTRACT_ADDRESS=endereço-do-contrato
-   ```
+# Iniciar servidor de desenvolvimento
+npm start
 
-4. **Inicie o servidor de desenvolvimento**
-   ```bash
-   npm start
-   ```
+# Abrir no navegador
+# http://localhost:3000
+```
 
-5. **Acesse a aplicação**
-   
-   Abra [http://localhost:3000](http://localhost:3000) no seu navegador.
+## 📋 Estrutura de Componentes
 
-## 🔧 Configuração da Wallet
+```
+src/
+├── components/
+│   ├── Navigation.js          # Navbar com tema Capy Pay
+│   ├── WalletProvider.js      # Contexto da carteira
+│   └── ...
+├── pages/
+│   ├── Home.js               # Tela principal do Capy Pay
+│   ├── Dashboard.js          # Dashboard de usuário
+│   ├── Payments.js           # Histórico de pagamentos
+│   └── Staking.js            # Funcionalidades de staking
+├── styles/
+│   ├── theme.js              # Tema Material-UI customizado
+│   └── App.css               # Estilos específicos do Capy Pay
+└── ...
+```
 
-1. **Instale o MetaMask** se ainda não tiver
-2. **Configure a rede Base**:
-   - Network Name: Base
-   - RPC URL: https://mainnet.base.org
-   - Chain ID: 8453
-   - Currency Symbol: ETH
-   - Block Explorer: https://basescan.org
+## 🎨 Classes CSS Personalizadas
 
-3. **Conecte sua wallet** clicando no botão "Connect Wallet"
+```css
+.capy-gradient-bg          # Fundo gradiente principal
+.capy-primary-gradient     # Gradiente verde-turquesa
+.capy-secondary-gradient   # Gradiente marrom
+.capy-card                 # Cards com bordas arredondadas
+.capy-button-primary       # Botão principal marrom
+.capy-button-secondary     # Botão secundário outlined
+.capy-balance-card         # Card do saldo principal
+.capy-icon-button          # Botões de ícone com hover
+.capy-transaction-item     # Itens de transação
+.capy-floating-animation   # Animação flutuante
+.capy-fade-in             # Animação de entrada
+```
 
-## 📱 Como Usar
+## 🔧 Personalização
 
-### Pagamentos PIX
+Para personalizar o tema:
 
-1. Acesse a página "Pagamentos"
-2. Escolha o valor e insira a chave PIX
-3. Confirme a transação
-4. Aguarde a confirmação
-
-### Conversão PIX → BRLA
-
-1. Vá para o Dashboard
-2. Selecione "PIX Interface"
-3. Insira o valor em PIX
-4. Confirme a conversão
-5. Receba BRLA em sua wallet
-
-### Staking
-
-1. Acesse a página "Staking"
-2. Escolha um pool de staking
-3. Defina o valor para stake
-4. Confirme a transação
-5. Ganhe recompensas passivas
-
-## 🔒 Segurança
-
-- **Nunca compartilhe** sua seed phrase ou chaves privadas
-- **Verifique sempre** os endereços de contrato
-- **Use apenas** redes oficiais
-- **Mantenha** sua wallet atualizada
-
-## 🐛 Problemas Conhecidos
-
-- Conflitos de dependências do wagmi/react-query (usar `--legacy-peer-deps`)
-- Algumas funcionalidades estão em desenvolvimento
-- Necessário configurar endereços de contrato reais
-
-## 🤝 Contribuindo
-
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`)
-4. Push para a branch (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
+1. Edite `src/styles/theme.js` para alterar cores principais
+2. Modifique `src/styles/App.css` para ajustar estilos específicos
+3. Atualize componentes em `src/pages/Home.js` para mudanças estruturais
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## 📞 Suporte
-
-Para suporte, abra uma issue no GitHub ou entre em contato com a equipe de desenvolvimento.
+Este projeto está sob a licença MIT.
 
 ---
 
-**Desenvolvido com ❤️ para o ecossistema Base**
+**Capy Pay** - Seu dinheiro, sua tranquilidade 🦫💰

@@ -1,6 +1,6 @@
 {
-  "short_name": "Super Dapp Base",
-  "name": "Super Dapp Base - PIX to BRLA",
+  "short_name": "Capy Pay",
+  "name": "Capy Pay - Aplicativo Financeiro",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,6 +10,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#1B365D",
-  "background_color": "#FFFFFF"
+  "theme_color": "#5FBEAA",
+  "background_color": "#F0F9F7",
+  "description": "Aplicativo financeiro moderno e minimalista inspirado na tranquilidade da capivara"
 }

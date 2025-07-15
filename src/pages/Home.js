@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Container, 
   Typography, 
@@ -7,502 +7,369 @@ import {
   Grid, 
   Card, 
   CardContent,
-  CardActions,
-  Paper,
-  Stack,
-  Chip,
   Avatar,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Divider
+  IconButton,
+  Stack,
+  Divider,
+  Chip,
+  Paper
 } from '@mui/material';
 import { 
-  AccountBalanceWallet, 
-  Payment, 
-  TrendingUp, 
-  Security,
-  QrCode,
-  Speed,
-  Shield,
-  Language,
-  ArrowForward,
-  ExpandMore,
-  CheckCircle,
-  SwapHoriz,
-  LocalAtm,
+  Send, 
+  GetApp, 
+  Receipt,
+  Settings,
+  Help,
+  Visibility,
+  VisibilityOff,
+  QrCodeScanner,
+  History,
+  TrendingUp,
   AccountBalance,
-  Lock,
-  FlashOn,
-  Public,
-  Verified
+  Security,
+  Notifications
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import CapyLogo from '../components/CapyLogo';
 
 const Home = () => {
   const navigate = useNavigate();
+  const [showBalance, setShowBalance] = useState(true);
+  const [balance] = useState(1250.75);
 
-  const mainFeatures = [
-    {
-      icon: <Shield sx={{ fontSize: 48, color: '#4F46E5' }} />,
-      title: 'Privado e à prova de fraudes',
-      description: 'Mantenha-se totalmente protegido, pois o zkKYC mínimo verifica sua identidade sem expor informações confidenciais. Experimente uma prevenção robusta contra fraudes com uma abordagem que prioriza a privacidade nas transações P2P.',
-      color: '#4F46E5'
-    },
-    {
-      icon: <Speed sx={{ fontSize: 48, color: '#06B6D4' }} />,
-      title: 'Extremamente rápido',
-      description: 'Experimente trocas quase instantâneas, impulsionadas por uma rede global de pares. Aproveite tempos de espera mínimos e um fluxo de pagamento tranquilo.',
-      color: '#06B6D4'
-    },
-    {
-      icon: <Public sx={{ fontSize: 48, color: '#8B5CF6' }} />,
-      title: 'Descentralizado',
-      description: 'Opera como um protocolo aberto, onde nenhuma autoridade central pode controlar ou censurar transações. Você mantém a propriedade absoluta dos seus ativos.',
-      color: '#8B5CF6'
-    }
+  const quickActions = [
+    { icon: <Receipt />, label: 'Extrato', action: () => navigate('/payments') },
+    { icon: <Settings />, label: 'Configurações', action: () => console.log('Configurações') },
+    { icon: <Help />, label: 'Ajuda', action: () => console.log('Ajuda') },
+    { icon: <QrCodeScanner />, label: 'Pagar', action: () => console.log('Pagar') },
   ];
 
-  const integrations = [
-    { name: 'Coinbase', color: '#0052FF', verified: true },
-    { name: 'Base Network', color: '#0052FF', verified: true },
-    { name: 'Ethereum', color: '#627EEA', verified: true },
-    { name: 'BRLA', color: '#00D4AA', verified: true },
-    { name: 'PIX', color: '#32BCAD', verified: true },
-    { name: 'MetaMask', color: '#F6851B', verified: true },
-    { name: 'WalletConnect', color: '#3B99FC', verified: true },
-    { name: 'RainbowKit', color: '#FF6B6B', verified: true }
+  const recentTransactions = [
+    { id: 1, type: 'received', amount: 150.00, description: 'Recebido de João Silva', time: '14:30' },
+    { id: 2, type: 'sent', amount: 89.50, description: 'Pagamento - Restaurante', time: '12:15' },
+    { id: 3, type: 'received', amount: 320.00, description: 'Depósito PIX', time: '09:45' },
   ];
 
-  const paymentMethods = [
+  const features = [
     {
-      icon: <QrCode sx={{ fontSize: 32, color: '#4F46E5' }} />,
-      title: 'Pagamentos QR',
-      description: 'Escaneie QR codes para pagamentos instantâneos'
+      icon: <TrendingUp sx={{ color: '#5FBEAA', fontSize: 32 }} />,
+      title: 'Investimentos',
+      description: 'Faça seu dinheiro render'
     },
     {
-      icon: <SwapHoriz sx={{ fontSize: 32, color: '#06B6D4' }} />,
-      title: 'Conversão PIX ↔ BRLA',
-      description: 'Converta entre PIX e BRLA automaticamente'
+      icon: <AccountBalance sx={{ color: '#B8860B', fontSize: 32 }} />,
+      title: 'Conta Digital',
+      description: 'Sem taxas, sem complicação'
     },
     {
-      icon: <LocalAtm sx={{ fontSize: 32, color: '#10B981' }} />,
-      title: 'Staking Rewards',
-      description: 'Ganhe recompensas fazendo staking de BRLA'
-    },
-    {
-      icon: <AccountBalance sx={{ fontSize: 32, color: '#8B5CF6' }} />,
-      title: 'DeFi Integration',
-      description: 'Acesse protocolos DeFi na Base Network'
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "Como o Super Dapp Base funciona?",
-      answer: "O Super Dapp Base é uma aplicação descentralizada que permite conversões entre PIX brasileiro e BRLA (stablecoin) na rede Base. Você pode fazer pagamentos PIX, converter para BRLA e participar de staking para ganhar recompensas."
-    },
-    {
-      question: "O que é BRLA?",
-      answer: "BRLA é uma stablecoin brasileira pareada ao Real (BRL) que roda na rede Base. É uma moeda digital estável que mantém seu valor próximo ao Real brasileiro."
-    },
-    {
-      question: "Como conectar minha carteira?",
-      answer: "Você pode conectar sua carteira MetaMask ou qualquer carteira compatível com WalletConnect. Certifique-se de estar na rede Base para usar todas as funcionalidades."
-    },
-    {
-      question: "Quais são as taxas?",
-      answer: "As taxas são mínimas graças à eficiência da rede Base. Conversões PIX para BRLA têm taxa de 0,1% e operações de staking são gratuitas para depósitos."
-    },
-    {
-      question: "É seguro usar o Super Dapp Base?",
-      answer: "Sim, o Super Dapp Base é construído com as melhores práticas de segurança. Suas chaves privadas ficam sempre com você, e todos os contratos são auditados."
+      icon: <Security sx={{ color: '#1E3A8A', fontSize: 32 }} />,
+      title: 'Segurança',
+      description: 'Seus dados protegidos'
     }
   ];
 
   return (
     <Box sx={{ 
       minHeight: '100vh',
-      background: 'linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%)'
+      background: 'linear-gradient(180deg, #F0F9F7 0%, #FFFFFF 100%)',
+      pb: 4
     }}>
-      <Container maxWidth="lg">
-        {/* Hero Section */}
-        <Box sx={{ 
-          py: { xs: 8, md: 12 },
-          textAlign: 'center',
-          position: 'relative'
-        }}>
-          <Typography 
-            variant="h2" 
-            component="h1" 
-            sx={{ 
-              fontWeight: 800,
-              fontSize: { xs: '2.5rem', md: '3.5rem' },
-              background: 'linear-gradient(135deg, #1B365D 0%, #4F46E5 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              mb: 3
-            }}
-          >
-            Pague com BRLA
-            <br />
-            em qualquer QR
-          </Typography>
-          
-          <Typography 
-            variant="h5" 
-            sx={{ 
-              color: '#64748B',
-              fontWeight: 400,
-              mb: 4,
-              maxWidth: '600px',
-              mx: 'auto',
-              lineHeight: 1.6
-            }}
-          >
-            Trocas de PIX ↔ BRLA tão rápidas que você pode pagar em qualquer loja.
-            <br />
-            Risco zero de congelamento bancário.
-          </Typography>
-
-          <Stack 
-            direction={{ xs: 'column', sm: 'row' }} 
-            spacing={2} 
-            justifyContent="center"
-            sx={{ mb: 6 }}
-          >
-            <Button 
-              variant="contained" 
-              size="large"
-              onClick={() => navigate('/dashboard')}
-              sx={{ 
-                px: 4,
-                py: 1.5,
-                borderRadius: 3,
-                background: 'linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%)',
-                boxShadow: '0 4px 14px 0 rgba(79, 70, 229, 0.4)',
-                textTransform: 'none',
-                fontWeight: 600,
-                fontSize: '1.1rem'
-              }}
-              endIcon={<ArrowForward />}
-            >
-              Começar Agora
-            </Button>
-            
-            <Button 
-              variant="outlined" 
-              size="large"
-              onClick={() => navigate('/payments')}
-              sx={{ 
-                px: 4,
-                py: 1.5,
-                borderRadius: 3,
-                borderColor: '#4F46E5',
-                color: '#4F46E5',
-                textTransform: 'none',
-                fontWeight: 600,
-                fontSize: '1.1rem'
-              }}
-            >
-              Ver Pagamentos
-            </Button>
-          </Stack>
-
-          {/* Hero Image Placeholder */}
-          <Box sx={{ 
+      <Container maxWidth="sm" sx={{ pt: 2 }}>
+        {/* Header com Logo */}
+        <Paper 
+          elevation={0} 
+          sx={{ 
+            background: 'linear-gradient(135deg, #5FBEAA 0%, #4A9688 100%)',
+            borderRadius: '0 0 32px 32px',
+            p: 3,
+            mb: 3,
+            color: 'white',
             position: 'relative',
-            maxWidth: '500px',
-            mx: 'auto',
-            mt: 4
-          }}>
-            <Paper sx={{ 
-              p: 4,
-              borderRadius: 4,
-              background: 'linear-gradient(135deg, #667EEA 0%, #764BA2 100%)',
-              color: 'white',
-              textAlign: 'center'
-            }}>
-              <QrCode sx={{ fontSize: 80, mb: 2 }} />
-              <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                Escaneie e Pague
-              </Typography>
-              <Typography variant="body2" sx={{ opacity: 0.9 }}>
-                Pagamentos instantâneos com BRLA
-              </Typography>
-            </Paper>
-          </Box>
-        </Box>
-
-        {/* Features Section */}
-        <Box sx={{ py: 8 }}>
-          <Typography 
-            variant="h3" 
-            component="h2" 
-            sx={{ 
-              textAlign: 'center',
-              fontWeight: 700,
-              mb: 2,
-              color: '#1E293B'
-            }}
-          >
-            Integração perfeita entre
-            <br />
-            cadeias e moedas
-          </Typography>
-          
-          <Typography 
-            variant="body1" 
-            sx={{ 
-              textAlign: 'center',
-              color: '#64748B',
-              mb: 6,
-              maxWidth: '600px',
-              mx: 'auto'
-            }}
-          >
-            Compre ou venda BRLA facilmente em diversas redes com
-            moedas fiduciárias — rápido, seguro e sem complicações.
-          </Typography>
-
-          <Grid container spacing={4}>
-            {mainFeatures.map((feature, index) => (
-              <Grid item xs={12} md={4} key={index}>
-                <Card sx={{ 
-                  height: '100%',
-                  p: 3,
-                  borderRadius: 3,
-                  border: '1px solid #E2E8F0',
-                  boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1)',
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    transform: 'translateY(-4px)',
-                    boxShadow: '0 8px 25px 0 rgba(0, 0, 0, 0.1)'
-                  }
-                }}>
-                  <CardContent sx={{ textAlign: 'center', p: 0 }}>
-                    <Box sx={{ mb: 3 }}>
-                      {feature.icon}
-                    </Box>
-                    <Typography variant="h6" component="h3" sx={{ 
-                      fontWeight: 600,
-                      mb: 2,
-                      color: '#1E293B'
-                    }}>
-                      {feature.title}
-                    </Typography>
-                    <Typography variant="body2" sx={{ 
-                      color: '#64748B',
-                      lineHeight: 1.6
-                    }}>
-                      {feature.description}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-
-        {/* Payment Methods Section */}
-        <Box sx={{ py: 8 }}>
-          <Typography 
-            variant="h4" 
-            component="h2" 
-            sx={{ 
-              textAlign: 'center',
-              fontWeight: 700,
-              mb: 6,
-              color: '#1E293B'
-            }}
-          >
-            Métodos de Pagamento
-          </Typography>
-
-          <Grid container spacing={3}>
-            {paymentMethods.map((method, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
-                <Card sx={{ 
-                  p: 3,
-                  borderRadius: 3,
-                  border: '1px solid #E2E8F0',
-                  textAlign: 'center',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.1)'
-                  }
-                }}>
-                  <Box sx={{ mb: 2 }}>
-                    {method.icon}
-                  </Box>
-                  <Typography variant="h6" sx={{ 
-                    fontWeight: 600,
-                    mb: 1,
-                    color: '#1E293B'
-                  }}>
-                    {method.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ 
-                    color: '#64748B'
-                  }}>
-                    {method.description}
-                  </Typography>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-
-        {/* Integrations Section */}
-        <Box sx={{ py: 8 }}>
-          <Typography 
-            variant="h4" 
-            component="h2" 
-            sx={{ 
-              textAlign: 'center',
-              fontWeight: 700,
-              mb: 6,
-              color: '#1E293B'
-            }}
-          >
-            Integrações Suportadas
-          </Typography>
-
-          <Grid container spacing={2} justifyContent="center">
-            {integrations.map((integration, index) => (
-              <Grid item key={index}>
-                <Chip
-                  avatar={
-                    <Avatar sx={{ 
-                      bgcolor: integration.color,
-                      color: 'white',
-                      fontSize: '0.8rem'
-                    }}>
-                      {integration.name[0]}
-                    </Avatar>
-                  }
-                  label={integration.name}
-                  variant="outlined"
-                  icon={integration.verified ? <Verified /> : undefined}
-                  sx={{ 
-                    py: 2,
-                    px: 1,
-                    borderRadius: 2,
-                    borderColor: '#E2E8F0',
-                    '& .MuiChip-label': {
-                      fontWeight: 500
-                    }
-                  }}
+            overflow: 'hidden',
+            '&::before': {
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(10px)',
+            }
+          }}
+        >
+          <Box sx={{ position: 'relative', zIndex: 1 }}>
+            <Stack direction="row" justifyContent="space-between" alignItems="center" mb={2}>
+              <Stack direction="row" alignItems="center" spacing={2}>
+                <CapyLogo 
+                  size={48} 
+                  variant="white"
+                  animated={true}
                 />
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
+                <Box>
+                  <Typography variant="h6" sx={{ fontWeight: 600, color: 'white' }}>
+                    Capy Pay
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+                    Olá, Felipe!
+                  </Typography>
+                </Box>
+              </Stack>
+              <IconButton sx={{ color: 'white' }}>
+                <Notifications />
+              </IconButton>
+            </Stack>
 
-        {/* FAQ Section */}
-        <Box sx={{ py: 8 }}>
-          <Typography 
-            variant="h4" 
-            component="h2" 
-            sx={{ 
-              textAlign: 'center',
-              fontWeight: 700,
-              mb: 6,
-              color: '#1E293B'
-            }}
-          >
-            Perguntas Frequentes
-          </Typography>
-
-          <Box sx={{ maxWidth: '800px', mx: 'auto' }}>
-            {faqs.map((faq, index) => (
-              <Accordion 
-                key={index}
-                sx={{ 
-                  mb: 1,
-                  borderRadius: 2,
-                  border: '1px solid #E2E8F0',
-                  '&:before': { display: 'none' },
-                  boxShadow: 'none'
-                }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMore />}
+            {/* Saldo */}
+            <Box sx={{ textAlign: 'center', py: 2 }}>
+              <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.8)', mb: 1 }}>
+                Saldo disponível
+              </Typography>
+              <Stack direction="row" alignItems="center" justifyContent="center" spacing={1}>
+                <Typography 
+                  variant="h3" 
                   sx={{ 
-                    py: 2,
-                    '& .MuiAccordionSummary-content': {
-                      my: 1
-                    }
+                    fontWeight: 700,
+                    color: 'white',
+                    fontSize: { xs: '2rem', sm: '2.5rem' }
                   }}
                 >
-                  <Typography variant="h6" sx={{ 
-                    fontWeight: 600,
-                    color: '#1E293B'
-                  }}>
-                    {faq.question}
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails sx={{ pt: 0 }}>
-                  <Typography variant="body1" sx={{ 
-                    color: '#64748B',
-                    lineHeight: 1.6
-                  }}>
-                    {faq.answer}
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-            ))}
+                  {showBalance ? `R$ ${balance.toFixed(2).replace('.', ',')}` : 'R$ ••••••'}
+                </Typography>
+                <IconButton 
+                  size="small" 
+                  onClick={() => setShowBalance(!showBalance)}
+                  sx={{ color: 'rgba(255, 255, 255, 0.8)' }}
+                >
+                  {showBalance ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </Stack>
+            </Box>
           </Box>
-        </Box>
+        </Paper>
 
-        {/* CTA Section */}
-        <Box sx={{ 
-          py: 8,
-          textAlign: 'center',
-          background: 'linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%)',
-          borderRadius: 4,
-          color: 'white',
-          mb: 8
-        }}>
-          <Typography variant="h4" sx={{ 
-            fontWeight: 700,
-            mb: 2
-          }}>
-            Pronto para começar?
-          </Typography>
-          <Typography variant="body1" sx={{ 
-            mb: 4,
-            opacity: 0.9
-          }}>
-            Conecte sua carteira e comece a usar o futuro dos pagamentos
-          </Typography>
-          <Button 
-            variant="contained" 
-            size="large"
-            onClick={() => navigate('/dashboard')}
-            sx={{ 
-              px: 4,
-              py: 1.5,
-              borderRadius: 3,
-              background: 'rgba(255, 255, 255, 0.2)',
-              backdropFilter: 'blur(10px)',
-              color: 'white',
-              border: '1px solid rgba(255, 255, 255, 0.3)',
-              textTransform: 'none',
-              fontWeight: 600,
-              fontSize: '1.1rem',
-              '&:hover': {
-                background: 'rgba(255, 255, 255, 0.3)'
-              }
-            }}
-            endIcon={<ArrowForward />}
-          >
-            Conectar Carteira
-          </Button>
-        </Box>
+        {/* Botões Principais */}
+        <Grid container spacing={2} sx={{ mb: 3 }}>
+          <Grid item xs={6}>
+            <Button
+              variant="contained"
+              fullWidth
+              size="large"
+              startIcon={<Send />}
+              onClick={() => navigate('/payments')}
+              sx={{
+                bgcolor: '#B8860B',
+                color: 'white',
+                py: 2,
+                borderRadius: 4,
+                fontWeight: 600,
+                fontSize: '1.1rem',
+                '&:hover': {
+                  bgcolor: '#8B6914',
+                }
+              }}
+            >
+              Enviar BRZ
+            </Button>
+          </Grid>
+          <Grid item xs={6}>
+            <Button
+              variant="outlined"
+              fullWidth
+              size="large"
+              startIcon={<GetApp />}
+              onClick={() => navigate('/payments')}
+              sx={{
+                borderColor: '#B8860B',
+                color: '#B8860B',
+                py: 2,
+                borderRadius: 4,
+                fontWeight: 600,
+                fontSize: '1.1rem',
+                '&:hover': {
+                  borderColor: '#8B6914',
+                  color: '#8B6914',
+                  bgcolor: 'rgba(184, 134, 11, 0.05)',
+                }
+              }}
+            >
+              Receber BRZ
+            </Button>
+          </Grid>
+        </Grid>
+
+        {/* Ações Rápidas */}
+        <Card sx={{ mb: 3, bgcolor: 'white' }}>
+          <CardContent sx={{ p: 2 }}>
+            <Grid container spacing={2}>
+              {quickActions.map((action, index) => (
+                <Grid item xs={3} key={index}>
+                  <Stack 
+                    alignItems="center" 
+                    spacing={1}
+                    sx={{ 
+                      cursor: 'pointer',
+                      p: 1,
+                      borderRadius: 2,
+                      transition: 'all 0.2s',
+                      '&:hover': {
+                        bgcolor: 'rgba(95, 190, 170, 0.1)',
+                      }
+                    }}
+                    onClick={action.action}
+                  >
+                    <Box
+                      sx={{
+                        p: 1.5,
+                        borderRadius: 3,
+                        bgcolor: 'rgba(95, 190, 170, 0.1)',
+                        color: '#5FBEAA',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      {action.icon}
+                    </Box>
+                    <Typography 
+                      variant="caption" 
+                      sx={{ 
+                        fontWeight: 500,
+                        color: '#1E3A8A',
+                        textAlign: 'center',
+                        fontSize: '0.75rem'
+                      }}
+                    >
+                      {action.label}
+                    </Typography>
+                  </Stack>
+                </Grid>
+              ))}
+            </Grid>
+          </CardContent>
+        </Card>
+
+        {/* Transações Recentes */}
+        <Card sx={{ mb: 3, bgcolor: 'white' }}>
+          <CardContent sx={{ p: 0 }}>
+            <Box sx={{ p: 2, pb: 1 }}>
+              <Stack direction="row" justifyContent="space-between" alignItems="center">
+                <Typography variant="h6" sx={{ fontWeight: 600, color: '#1E3A8A' }}>
+                  Transações Recentes
+                </Typography>
+                <Button 
+                  size="small" 
+                  sx={{ color: '#5FBEAA' }}
+                  onClick={() => navigate('/payments')}
+                >
+                  Ver todas
+                </Button>
+              </Stack>
+            </Box>
+            <Divider sx={{ mx: 2 }} />
+            <Box sx={{ p: 2, pt: 1 }}>
+              <Stack spacing={2}>
+                {recentTransactions.map((transaction) => (
+                  <Stack 
+                    key={transaction.id}
+                    direction="row" 
+                    justifyContent="space-between" 
+                    alignItems="center"
+                    sx={{ 
+                      p: 1,
+                      borderRadius: 2,
+                      '&:hover': {
+                        bgcolor: 'rgba(95, 190, 170, 0.05)',
+                      }
+                    }}
+                  >
+                    <Stack direction="row" alignItems="center" spacing={2}>
+                      <Avatar 
+                        sx={{ 
+                          width: 32, 
+                          height: 32,
+                          bgcolor: transaction.type === 'received' ? 'rgba(95, 190, 170, 0.1)' : 'rgba(184, 134, 11, 0.1)',
+                          color: transaction.type === 'received' ? '#5FBEAA' : '#B8860B'
+                        }}
+                      >
+                        {transaction.type === 'received' ? <GetApp /> : <Send />}
+                      </Avatar>
+                      <Box>
+                        <Typography 
+                          variant="body2" 
+                          sx={{ fontWeight: 500, color: '#1E3A8A' }}
+                        >
+                          {transaction.description}
+                        </Typography>
+                        <Typography 
+                          variant="caption" 
+                          sx={{ color: '#64748B' }}
+                        >
+                          {transaction.time}
+                        </Typography>
+                      </Box>
+                    </Stack>
+                    <Typography 
+                      variant="body2" 
+                      sx={{ 
+                        fontWeight: 600,
+                        color: transaction.type === 'received' ? '#5FBEAA' : '#B8860B'
+                      }}
+                    >
+                      {transaction.type === 'received' ? '+' : '-'} R$ {transaction.amount.toFixed(2).replace('.', ',')}
+                    </Typography>
+                  </Stack>
+                ))}
+              </Stack>
+            </Box>
+          </CardContent>
+        </Card>
+
+        {/* Funcionalidades */}
+        <Card sx={{ bgcolor: 'white' }}>
+          <CardContent>
+            <Typography variant="h6" sx={{ fontWeight: 600, color: '#1E3A8A', mb: 2 }}>
+              Explore mais
+            </Typography>
+            <Grid container spacing={2}>
+              {features.map((feature, index) => (
+                <Grid item xs={12} key={index}>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      p: 2,
+                      borderRadius: 3,
+                      cursor: 'pointer',
+                      transition: 'all 0.2s',
+                      '&:hover': {
+                        bgcolor: 'rgba(95, 190, 170, 0.05)',
+                      }
+                    }}
+                  >
+                    <Box sx={{ mr: 2 }}>
+                      {feature.icon}
+                    </Box>
+                    <Box>
+                      <Typography 
+                        variant="subtitle1" 
+                        sx={{ fontWeight: 600, color: '#1E3A8A' }}
+                      >
+                        {feature.title}
+                      </Typography>
+                      <Typography 
+                        variant="body2" 
+                        sx={{ color: '#64748B' }}
+                      >
+                        {feature.description}
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
+          </CardContent>
+        </Card>
       </Container>
     </Box>
   );
