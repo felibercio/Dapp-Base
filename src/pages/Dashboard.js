@@ -12,11 +12,13 @@ import {
   Payment, 
   Receipt, 
   TrendingUp,
-  Rocket 
+  Rocket,
+  Eco
 } from '@mui/icons-material';
 import PixInterface from '../components/PixInterface';
 import TransactionReceipt from '../components/TransactionReceipt';
 import AppchainMonitor from '../components/AppchainMonitor';
+import BaseEcosystemDashboard from '../components/BaseEcosystemDashboard';
 
 function TabPanel({ children, value, index, ...other }) {
   return (
@@ -101,6 +103,11 @@ const Dashboard = () => {
               label="Appchain Monitor" 
               {...a11yProps(4)} 
             />
+            <Tab 
+              icon={<Eco />} 
+              label="Base Ecosystem" 
+              {...a11yProps(5)} 
+            />
           </Tabs>
         </Box>
 
@@ -143,6 +150,10 @@ const Dashboard = () => {
 
         <TabPanel value={value} index={4}>
           <AppchainMonitor />
+        </TabPanel>
+
+        <TabPanel value={value} index={5}>
+          <BaseEcosystemDashboard />
         </TabPanel>
       </Paper>
 

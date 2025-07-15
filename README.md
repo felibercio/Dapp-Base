@@ -38,6 +38,9 @@ Quando o volume de transações justificar, o Capy Pay migrará para uma **Base 
 - **Paymaster**: Sponsorship de gas fees
 - **OnchainKit**: Ferramentas de desenvolvimento
 - **RainbowKit**: Conectores de carteira
+- **Base Ecosystem Dashboard**: Monitoramento de funding e distribuição
+- **Builder Rewards**: Participação no programa de recompensas
+- **Mini Apps**: Distribuição através de feeds sociais
 
 ## 🎨 Design e Identidade Visual
 
@@ -80,6 +83,27 @@ Quando o volume de transações justificar, o Capy Pay migrará para uma **Base 
 - Lista das últimas transações
 - Ícones diferenciados para envio/recebimento
 - Formatação de valores e horários
+
+## 💰 Oportunidades de Funding Base
+
+O Capy Pay está estrategicamente posicionado para acessar múltiplos programas de funding da Base:
+
+### **Programas Ativos:**
+- **Builder Rewards**: Até 2 ETH/semana baseado em Builder Score
+- **Base Builder Grants**: 1-5 ETH para projetos com product-market fit
+- **Base Batches**: Programa global de aceleração
+- **OP Retro Funding**: Funding retroativo para contribuições ao ecossistema
+
+### **Estratégia de Distribuição:**
+- **Mini Apps**: Integração com feeds sociais para distribuição viral
+- **Base Ecosystem Page**: Showcase oficial para descoberta
+- **Base Activations**: Participação em eventos e ativações
+
+### **Ferramentas Integradas:**
+- **Smart Wallet**: Account abstraction para UX superior
+- **Paymaster**: Sponsorship de gas fees para usuários
+- **OnchainKit**: Componentes React para desenvolvimento rápido
+- **Basenames**: Nomes legíveis para endereços
 
 ## 🛠️ Tecnologias Utilizadas
 
