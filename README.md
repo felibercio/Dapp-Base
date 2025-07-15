@@ -4,6 +4,41 @@
 
 O Capy Pay é um aplicativo financeiro moderno e minimalista, desenvolvido com uma estética limpa e amigável inspirada na tranquilidade da capivara. O design combina funcionalidade fintech com uma experiência visual calma e acolhedora.
 
+## 🚀 Roadmap de Escalabilidade
+
+### **Fase 1: Base Mainnet (Atual)**
+- ✅ Smart contracts para conversão PIX ↔ BRLA/USDC
+- ✅ Interface React com Web3 integrado
+- ✅ Sistema de staking e rewards
+- ✅ Integração com oráculos PIX
+
+### **Fase 2: Base Appchain (Futuro)**
+Quando o volume de transações justificar, o Capy Pay migrará para uma **Base Appchain dedicada** para obter:
+
+#### **Benefícios Técnicos:**
+- **Transações sub-segundo**: Blocos de 1 segundo vs 2 segundos da Base
+- **Custos previsíveis**: Taxa fixa mensal vs gas variável
+- **Throughput dedicado**: Sem competição com outros DApps
+- **Bridging instantâneo**: Movimentação rápida entre Base e Appchain
+
+#### **Benefícios de Negócio:**
+- **Experiência do usuário**: Transações PIX instantâneas
+- **Custos operacionais**: Redução de 90% em gas fees
+- **Escalabilidade**: Suporte a milhões de transações mensais
+- **Customização**: Gas token próprio (CAPY) e governança
+
+#### **Critérios para Migração:**
+- ✅ Volume > 100k transações/mês
+- ✅ Gastos com gas > $5k/mês
+- ✅ Base de usuários > 10k ativos
+- ✅ Necessidade de features customizadas
+
+### **Integração com Ecosystem Base:**
+- **Smart Wallet**: Onboarding sem friction
+- **Paymaster**: Sponsorship de gas fees
+- **OnchainKit**: Ferramentas de desenvolvimento
+- **RainbowKit**: Conectores de carteira
+
 ## 🎨 Design e Identidade Visual
 
 ### Paleta de Cores

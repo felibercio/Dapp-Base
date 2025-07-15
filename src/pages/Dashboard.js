@@ -11,10 +11,12 @@ import {
   AccountBalance, 
   Payment, 
   Receipt, 
-  TrendingUp 
+  TrendingUp,
+  Rocket 
 } from '@mui/icons-material';
 import PixInterface from '../components/PixInterface';
 import TransactionReceipt from '../components/TransactionReceipt';
+import AppchainMonitor from '../components/AppchainMonitor';
 
 function TabPanel({ children, value, index, ...other }) {
   return (
@@ -94,6 +96,11 @@ const Dashboard = () => {
               label="Analytics" 
               {...a11yProps(3)} 
             />
+            <Tab 
+              icon={<Rocket />} 
+              label="Appchain Monitor" 
+              {...a11yProps(4)} 
+            />
           </Tabs>
         </Box>
 
@@ -132,6 +139,10 @@ const Dashboard = () => {
               Funcionalidade em desenvolvimento
             </Typography>
           </Box>
+        </TabPanel>
+
+        <TabPanel value={value} index={4}>
+          <AppchainMonitor />
         </TabPanel>
       </Paper>
 

@@ -147,7 +147,7 @@
 /* Melhorias de performance */
 .capy-logo-container * {
   will-change: transform;
-}
+  }
 
 .capy-logo-container {
   contain: layout style paint;
