@@ -4,6 +4,44 @@
 
 O Capy Pay é um aplicativo financeiro moderno e minimalista, desenvolvido com uma estética limpa e amigável inspirada na tranquilidade da capivara. O design combina funcionalidade fintech com uma experiência visual calma e acolhedora.
 
+## 🚀 Roadmap de Escalabilidade
+
+### **Fase 1: Base Mainnet (Atual)**
+- ✅ Smart contracts para conversão PIX ↔ BRLA/USDC
+- ✅ Interface React com Web3 integrado
+- ✅ Sistema de staking e rewards
+- ✅ Integração com oráculos PIX
+
+### **Fase 2: Base Appchain (Futuro)**
+Quando o volume de transações justificar, o Capy Pay migrará para uma **Base Appchain dedicada** para obter:
+
+#### **Benefícios Técnicos:**
+- **Transações sub-segundo**: Blocos de 1 segundo vs 2 segundos da Base
+- **Custos previsíveis**: Taxa fixa mensal vs gas variável
+- **Throughput dedicado**: Sem competição com outros DApps
+- **Bridging instantâneo**: Movimentação rápida entre Base e Appchain
+
+#### **Benefícios de Negócio:**
+- **Experiência do usuário**: Transações PIX instantâneas
+- **Custos operacionais**: Redução de 90% em gas fees
+- **Escalabilidade**: Suporte a milhões de transações mensais
+- **Customização**: Gas token próprio (CAPY) e governança
+
+#### **Critérios para Migração:**
+- ✅ Volume > 100k transações/mês
+- ✅ Gastos com gas > $5k/mês
+- ✅ Base de usuários > 10k ativos
+- ✅ Necessidade de features customizadas
+
+### **Integração com Ecosystem Base:**
+- **Smart Wallet**: Onboarding sem friction
+- **Paymaster**: Sponsorship de gas fees
+- **OnchainKit**: Ferramentas de desenvolvimento
+- **RainbowKit**: Conectores de carteira
+- **Base Ecosystem Dashboard**: Monitoramento de funding e distribuição
+- **Builder Rewards**: Participação no programa de recompensas
+- **Mini Apps**: Distribuição através de feeds sociais
+
 ## 🎨 Design e Identidade Visual
 
 ### Paleta de Cores
@@ -45,6 +83,27 @@ O Capy Pay é um aplicativo financeiro moderno e minimalista, desenvolvido com u
 - Lista das últimas transações
 - Ícones diferenciados para envio/recebimento
 - Formatação de valores e horários
+
+## 💰 Oportunidades de Funding Base
+
+O Capy Pay está estrategicamente posicionado para acessar múltiplos programas de funding da Base:
+
+### **Programas Ativos:**
+- **Builder Rewards**: Até 2 ETH/semana baseado em Builder Score
+- **Base Builder Grants**: 1-5 ETH para projetos com product-market fit
+- **Base Batches**: Programa global de aceleração
+- **OP Retro Funding**: Funding retroativo para contribuições ao ecossistema
+
+### **Estratégia de Distribuição:**
+- **Mini Apps**: Integração com feeds sociais para distribuição viral
+- **Base Ecosystem Page**: Showcase oficial para descoberta
+- **Base Activations**: Participação em eventos e ativações
+
+### **Ferramentas Integradas:**
+- **Smart Wallet**: Account abstraction para UX superior
+- **Paymaster**: Sponsorship de gas fees para usuários
+- **OnchainKit**: Componentes React para desenvolvimento rápido
+- **Basenames**: Nomes legíveis para endereços
 
 ## 🛠️ Tecnologias Utilizadas
 
