@@ -1,11 +1,12 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
+import capyLogo from '../images/capy1.png';
 
-const CapyLogo = ({ 
-  size = 48, 
-  showText = false, 
+const CapyLogo = ({
+  size = 48,
+  showText = false,
   variant = 'default',
-  animated = false 
+  animated = false
 }) => {
   const containerStyle = {
     display: 'flex',
@@ -37,91 +38,7 @@ const CapyLogo = ({
   return (
     <Box sx={containerStyle}>
       <Box sx={logoStyle}>
-        <svg 
-          width={size} 
-          height={size} 
-          viewBox="0 0 100 100" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* Fundo arredondado verde-turquesa */}
-          <rect
-            width="100"
-            height="100"
-            rx="22"
-            ry="22"
-            fill="#5FBEAA"
-          />
-          
-          {/* Corpo principal da capivara - formato mais arredondado */}
-          <ellipse
-            cx="50"
-            cy="55"
-            rx="35"
-            ry="32"
-            fill="#CD853F"
-            stroke="#2C3E50"
-            strokeWidth="4"
-          />
-          
-          {/* Orelha esquerda */}
-          <ellipse
-            cx="35"
-            cy="28"
-            rx="8"
-            ry="12"
-            fill="#CD853F"
-            stroke="#2C3E50"
-            strokeWidth="4"
-          />
-          <ellipse
-            cx="35"
-            cy="28"
-            rx="4"
-            ry="8"
-            fill="#B8860B"
-          />
-          
-          {/* Orelha direita */}
-          <ellipse
-            cx="65"
-            cy="28"
-            rx="8"
-            ry="12"
-            fill="#CD853F"
-            stroke="#2C3E50"
-            strokeWidth="4"
-          />
-          <ellipse
-            cx="65"
-            cy="28"
-            rx="4"
-            ry="8"
-            fill="#B8860B"
-          />
-          
-          {/* Narinas */}
-          <ellipse cx="47" cy="52" rx="2" ry="1.5" fill="#2C3E50" />
-          <ellipse cx="53" cy="52" rx="2" ry="1.5" fill="#2C3E50" />
-          
-          {/* Olho fechado sorridente */}
-          <path
-            d="M 42 45 Q 47 40 52 45"
-            stroke="#2C3E50"
-            strokeWidth="4"
-            fill="none"
-            strokeLinecap="round"
-          />
-          
-          {/* Boca sorridente */}
-          <path
-            d="M 45 62 Q 50 67 55 62"
-            stroke="#2C3E50"
-            strokeWidth="4"
-            fill="none"
-            strokeLinecap="round"
-          />
-        </svg>
+        <img src={capyLogo} alt="Capy Pay Logo" style={{ width: '100%', height: '100%' }} />
       </Box>
       {showText && (
         <Typography sx={textStyle}>
